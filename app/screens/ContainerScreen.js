@@ -1,17 +1,14 @@
 import React from "react";
 import { Platform, ScrollView, StyleSheet, View } from "react-native";
 import * as Yup from "yup";
-import DateTimePicker from '@react-native-community/datetimepicker';
 
-import BodyText from "../components/BodyText";
 import {
   AppForm as Form,
   AppFormField as FormField,
   AppFormPicker as Picker,
   SubmitButton,
 } from "../components/forms";
-import Screen from "../components/Screen";
-import styles from "../config/styles";
+import { Screen, BodyText } from "../components";
 
 const validationSchema = Yup.object().shape({
   naam: Yup.string().required().min(2).label("Naam"),
@@ -62,7 +59,6 @@ function ContainerScreen() {
                 postcode: "",
                 datum: "",
                 }}
-                // onSubmit={(values) => console.log(values)}
                 onSubmit={() => alert('Verzonden!')}
                 validationSchema={validationSchema}
             >

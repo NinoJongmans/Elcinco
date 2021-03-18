@@ -1,27 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons'; 
-
-import ContainerScreen from './app/screens/ContainerScreen';
-import MetalPriceScreen from './app/screens/MetalPriceScreen';
-import ContactScreen from './app/screens/ContactScreen';
 import { NavigationContainer } from '@react-navigation/native';
-import Screen from './app/components/Screen';
-import colors from './app/config/colors';
-import Card from './app/components/Card';
 
-import KoperPrijsScreen from './app/screens/prijzen/KoperPrijsScreen';
-import AluminiumPrijsScreen from './app/screens/prijzen/AluminiumPrijsScreen';
-import KabelPrijsScreen from './app/screens/prijzen/KabelPrijsScreen';
-import RvsPrijsScreen from './app/screens/prijzen/RvsPrijsScreen';
-import IjzerPrijsScreen from './app/screens/prijzen/IjzerPrijsScreen';
-import LoodPrijsScreen from './app/screens/prijzen/LoodPrijsScreen';
-import AccuPrijsScreen from './app/screens/prijzen/AccuPrijsScreen';
+import colors from './app/config/colors';
+import { ContainerScreen, ContactScreen } from "./app/screens";
+import { Screen, Card } from "./app/components";
+import {
+  AccuPrijsScreen,
+  AluminiumPrijsScreen,
+  IjzerPrijsScreen,
+  KabelPrijsScreen,
+  KoperPrijsScreen,
+  LoodPrijsScreen,
+  RvsPrijsScreen,
+} from "./app/screens/prijzen";
 
 const MetaalOverzicht = ({ navigation }) => (
+  // Een scherm opgemaakt met een scrolbaar veld. Hierin staan card 
+  // components met verschillende props. Zie het card component bestand voor meer.
   <Screen style={styles.container}>
     <ScrollView style={styles.scrollView}>
         <Card 
@@ -59,6 +59,7 @@ const MetaalOverzicht = ({ navigation }) => (
             image={require("./app/assets/loodaccus.jpg")}
             link={() => navigation.navigate("AccuPrijs")}
         />
+        {/* Extra view toegevoegd om ruimte aan de onderkant te creeëren. */}
         <View style={styles.extra}></View>
     </ScrollView>
   </Screen>
@@ -88,6 +89,7 @@ const AccuPrijs = () => (
 
 const Stack = createStackNavigator();
 const StackNavigator = () => (
+  // Navigatie voor alle kaart elementen
   <Stack.Navigator>
     <Stack.Screen name="Metaal prijzen" component={MetaalOverzicht} />
     <Stack.Screen name="KoperPrijs" component={KoperPrijs} options={{ title: 'Koper prijzen' }} />
@@ -112,8 +114,6 @@ const ContainerNavigator = () => (
   </Stack.Navigator>
 )
 
-
-// const MetaalPrijzen = () => <MetalPriceScreen />
 const Container = () => <ContainerScreen />
 const Contact = () => <ContactScreen />
 
@@ -151,12 +151,12 @@ const TabNavigator = () => (
 
 export default function App() {
 
-  console.log("App excecuted");
+  console.log("App succesvol gestart");
 
   return (
+    // Laad het navigatiecomponent in
     <NavigationContainer>
       <TabNavigator />
-     {/* <StackNavigator /> */}
     </NavigationContainer>
   );
 }
@@ -165,12 +165,12 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f8f4f4',
     flex: 1,
-},
-extra: {
-    height: 100,
-},  
-scrollView: {
-    paddingHorizontal: 20,
-    paddingTop: 20,
-},
+  },
+  extra: {
+      height: 100,
+  },  
+  scrollView: {
+      paddingHorizontal: 20,
+      paddingTop: 20,
+  },
 });

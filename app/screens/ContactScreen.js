@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import { Button, SafeAreaView, StyleSheet, Text, View, Linking, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Linking, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; 
 import * as WebBrowser from 'expo-web-browser';
-import Constants from 'expo-constants';
 
-import Screen from '../components/Screen';
-import BodyText from '../components/BodyText';
+import { BodyText, ButtonPrimary, ButtonSecondary, Tijden } from "../components";
 import colors from '../config/colors';
-import ButtonPrimary from '../components/ButtonPrimary';
-import ButtonSecondary from '../components/ButtonSecondary';
-import { color } from 'react-native-reanimated';
 
 
 export default class App extends Component {
@@ -39,41 +34,13 @@ export default class App extends Component {
 
             <View style={styles.tijdenContainer}>
                 <Text style={styles.tijdenTitel}>Openingstijden</Text>
-                <View style={styles.dagContainer}>
-                    <FontAwesome name="clock-o" size={24} color="white" />
-                    <Text style={styles.dagText}>Ma:</Text>
-                    <Text style={styles.tijdenText}>07:00 - 17:00</Text>
-                </View>
-                <View style={styles.dagContainer}>
-                    <FontAwesome name="clock-o" size={24} color="white" />
-                    <Text style={styles.dagText}>Di:</Text>
-                    <Text style={styles.tijdenText}>07:00 - 17:00</Text>
-                </View>
-                <View style={styles.dagContainer}>
-                    <FontAwesome name="clock-o" size={24} color="white" />
-                    <Text style={styles.dagText}>Woe:</Text>
-                    <Text style={styles.tijdenText}>07:00 - 17:00</Text>
-                </View>
-                <View style={styles.dagContainer}>
-                    <FontAwesome name="clock-o" size={24} color="white" />
-                    <Text style={styles.dagText}>Do:</Text>
-                    <Text style={styles.tijdenText}>07:00 - 17:00</Text>
-                </View>
-                <View style={styles.dagContainer}>
-                    <FontAwesome name="clock-o" size={24} color="white" />
-                    <Text style={styles.dagText}>Vr:</Text>
-                    <Text style={styles.tijdenText}>07:00 - 17:00</Text>
-                </View>
-                <View style={styles.dagContainer}>
-                    <FontAwesome name="clock-o" size={24} color="white" />
-                    <Text style={styles.dagText}>Za:</Text>
-                    <Text style={styles.tijdenText}>08:00 - 12:00</Text>
-                </View>
-                <View style={styles.dagContainer}>
-                    <FontAwesome name="clock-o" size={24} color="white" />
-                    <Text style={styles.dagText}>Zo:</Text>
-                    <Text style={styles.tijdenText}>Gesloten</Text>
-                </View>
+                <Tijden dag="Ma:" tijd="07:00  - 17:00"/>
+                <Tijden dag="Di:" tijd="07:00  - 17:00"/>
+                <Tijden dag="Woe:" tijd="07:00  - 17:00"/>
+                <Tijden dag="Do:" tijd="07:00  - 17:00"/>
+                <Tijden dag="Vr:" tijd="07:00  - 17:00"/>
+                <Tijden dag="Za:" tijd="08:00  - 12:00"/>
+                <Tijden dag="Zo:" tijd="Gesloten"/>
             </View>
         </View>
         </ScrollView>
@@ -104,17 +71,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         marginVertical: 40,
     },
-    dagContainer: {
-        marginVertical: 10,
-    },
-    dagText: {
-        position: 'absolute',
-        marginLeft: 40,
-        color: colors.white,
-        fontSize: 16,
-        marginTop: 2,
-        fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
-    },
     email: {
         marginVertical: 70,
     },
@@ -141,14 +97,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
-    tijdenText: {
-        position: 'absolute',
-        marginLeft: 90,
-        color: colors.white,
-        fontSize: 16,
-        marginTop: 2,
-        fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
-    },
     textWebsite: {
         position: 'absolute',
         marginLeft: 50,
@@ -171,5 +119,3 @@ const styles = StyleSheet.create({
         marginTop: -40,
     },
 })
-
-// export default ContactScreen;

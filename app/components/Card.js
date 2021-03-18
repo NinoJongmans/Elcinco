@@ -3,8 +3,6 @@ import { View, StyleSheet, Image, Text, Platform } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 import colors from '../config/colors';
-import BodyText from '../components/BodyText';
-import CardText from './CardText';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function Card({ title, image, link }) {

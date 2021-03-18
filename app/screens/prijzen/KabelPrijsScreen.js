@@ -1,9 +1,7 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View, Image, Platform, ScrollView } from 'react-native';
-import BodyText from '../../components/BodyText';
+import { StyleSheet, View, Image, Platform, ScrollView } from 'react-native';
 
-import Screen from '../../components/Screen';
-import CardMetals from '../../components/CardMetals';
+import { Screen, CardMetals, BodyText } from "../../components";
 
 function KabelPrijsScreen(props) {
     return (

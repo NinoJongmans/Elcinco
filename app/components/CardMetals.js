@@ -1,11 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text, Platform, TextInput } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { View, StyleSheet, Text, TextInput } from 'react-native';
 
 import colors from '../config/colors';
-import BodyText from '../components/BodyText';
-import CardText from './CardText';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function CardMetals({ title, price }) {
    
